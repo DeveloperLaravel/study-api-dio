@@ -6,8 +6,10 @@ class CoustemText extends StatelessWidget {
     Key? key,
     required this.text,
     this.size = 16,
+    this.spacin = 1,
     this.max = 1,
     this.height = 1,
+    this.flow = TextOverflow.ellipsis,
     this.font = 'TenorSans',
     this.weight = FontWeight.normal,
     this.color = Colors.white,
@@ -15,21 +17,26 @@ class CoustemText extends StatelessWidget {
   final String text;
   final double size;
   final String font;
+  final TextOverflow flow;
   final FontWeight weight;
   final Color color;
   final double height;
   final int max;
+  final double spacin;
   @override
   Widget build(BuildContext context) {
     return Text(
       text,
       maxLines: max,
+
       style: TextStyle(
         fontSize: size,
         fontWeight: FontWeight.normal,
         color: color,
+        overflow: flow,
         fontFamily: font,
         height: height,
+        letterSpacing: spacin,
       ),
     );
   }

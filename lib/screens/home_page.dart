@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_study_api_dio/core/colors/app_color.dart';
 import 'package:flutter_study_api_dio/models/cover_model.dart';
 import 'package:flutter_study_api_dio/models/product_model.dart';
+import 'package:flutter_study_api_dio/screens/checkout.dart';
 import 'package:flutter_study_api_dio/widget/coustem_app_bar.dart';
 import 'package:flutter_study_api_dio/widget/coustem_text.dart';
 import 'package:flutter_svg/svg.dart';
@@ -69,20 +70,33 @@ class _MyHomePageState extends State<MyHomePage> {
                         ),
                         itemBuilder: (context, index) {
                           final item = ProductModel.products[index];
-                          return Column(
-                            crossAxisAlignment: CrossAxisAlignment.start,
-                            children: [
-                              Image.asset(item.image),
-                              Gap(20),
-                              CoustemText(text: item.name, size: 14),
-                              CoustemText(text: item.description, size: 14),
-                              CoustemText(
-                                text: ' ${item.price.toString()}',
-                                size: 16,
-                                color: Colors.red,
+                          return GestureDetector(
+                            onTap: () => Navigator.push(
+                              context,
+                              MaterialPageRoute(
+                                builder: (c) => Checkout(
+                                  image: item.image,
+                                  name: item.name,
+                                  price: item.price,
+                                  description: item.description,
+                                ),
                               ),
-                              Gap(20),
-                            ],
+                            ),
+                            child: Column(
+                              crossAxisAlignment: CrossAxisAlignment.start,
+                              children: [
+                                Image.asset(item.image),
+                                Gap(20),
+                                CoustemText(text: item.name, size: 14),
+                                CoustemText(text: item.description, size: 14),
+                                CoustemText(
+                                  text: '\$ ${item.price.toString()}',
+                                  size: 16,
+                                  color: Colors.red,
+                                ),
+                                Gap(20),
+                              ],
+                            ),
                           );
                         },
                       ),

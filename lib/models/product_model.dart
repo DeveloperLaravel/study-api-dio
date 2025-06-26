@@ -1,7 +1,7 @@
 class ProductModel {
   final String image;
   final String name;
-  final double price;
+  final num price;
   final String description;
 
   ProductModel({
