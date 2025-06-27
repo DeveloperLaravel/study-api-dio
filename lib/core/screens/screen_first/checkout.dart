@@ -1,11 +1,11 @@
 // ignore_for_file: public_member_api_docs, sort_constructors_first
 import 'package:flutter/material.dart';
-import 'package:flutter_study_api_dio/widget/card_widget.dart';
+import 'package:flutter_study_api_dio/core/widget/widget_first/card_widget.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:gap/gap.dart';
 
-import 'package:flutter_study_api_dio/widget/coustem_app_bar.dart';
-import 'package:flutter_study_api_dio/widget/coustem_text.dart';
+import 'package:flutter_study_api_dio/core/widget/widget_first/coustem_app_bar.dart';
+import 'package:flutter_study_api_dio/core/widget/widget_first/coustem_text.dart';
 
 class Checkout extends StatelessWidget {
   const Checkout({

@@ -1,10 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_study_api_dio/core/colors/app_color.dart';
-import 'package:flutter_study_api_dio/models/cover_model.dart';
-import 'package:flutter_study_api_dio/models/product_model.dart';
-import 'package:flutter_study_api_dio/screens/checkout.dart';
-import 'package:flutter_study_api_dio/widget/coustem_app_bar.dart';
-import 'package:flutter_study_api_dio/widget/coustem_text.dart';
+import 'package:flutter_study_api_dio/core/models/model_first/cover_model.dart';
+import 'package:flutter_study_api_dio/core/models/model_first/product_model.dart';
+import 'package:flutter_study_api_dio/core/route/route_string.dart';
+import 'package:flutter_study_api_dio/core/screens/screen_first/checkout.dart';
+import 'package:flutter_study_api_dio/core/widget/widget_first/coustem_app_bar.dart';
+import 'package:flutter_study_api_dio/core/widget/widget_first/coustem_text.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:gap/gap.dart';
 import 'package:ionicons/ionicons.dart';
@@ -146,7 +147,21 @@ class _MyHomePageState extends State<MyHomePage> {
                       Gap(15),
                       Image.asset('assets/images/8.png', color: Colors.white),
                       Gap(70),
-                      about(),
+
+                      Row(
+                        mainAxisAlignment: MainAxisAlignment.spaceAround,
+                        children: [
+                          IconButton(
+                            onPressed: () =>
+                                Navigator.pushNamed(context, feedRoute),
+                            icon: CoustemText(text: 'about', size: 20),
+                          ),
+
+                          CoustemText(text: 'contact', size: 20),
+                          CoustemText(text: 'blog', size: 20),
+                        ],
+                      ),
+
                       Gap(70),
 
                       Gap(30),
@@ -175,17 +190,6 @@ class _MyHomePageState extends State<MyHomePage> {
       ),
     );
   }
-}
-
-Widget about() {
-  return Row(
-    mainAxisAlignment: MainAxisAlignment.spaceAround,
-    children: [
-      CoustemText(text: 'about', size: 20),
-      CoustemText(text: 'contact', size: 20),
-      CoustemText(text: 'blog', size: 20),
-    ],
-  );
 }
 
 Widget iconsf() {

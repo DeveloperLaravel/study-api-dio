@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_study_api_dio/widget/coustem_text.dart';
+import 'package:flutter_study_api_dio/core/widget/widget_first/coustem_text.dart';
 import 'package:gap/gap.dart';
 
 class CardWidget extends StatefulWidget {
