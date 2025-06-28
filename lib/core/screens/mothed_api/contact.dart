@@ -10,20 +10,17 @@ class Contact extends StatefulWidget {
 }
 
 class _ContactState extends State<Contact> {
-  // dio
-  Cart? cart;
-  List uesr = [];
+  List<Cart> users = [];
+
   Future<void> getData() async {
     const String apiUrl = "https://jsonplaceholder.typicode.com/users";
     try {
       Response response = await Dio().get(apiUrl);
-      if (response.data != null) {
-        setState(() {
-          cart = Cart.fromJson(response.data);
-        });
-      } else {
-        throw Exception('Api is null');
-      }
+      List<dynamic> jsonData = response.data;
+
+      setState(() {
+        users = jsonData.map((user) => Cart.fromJson(user)).toList();
+      });
     } catch (e) {
       print(e.toString());
     }
@@ -32,21 +29,30 @@ class _ContactState extends State<Contact> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(title: Text('Contact Api')),
+      floatingActionButton: FloatingActionButton(
+        onPressed: () {
+          getData();
+        },
+        child: Text('content'),
+      ),
+      appBar: AppBar(backgroundColor: Colors.blue, title: Text('Contact Api')),
       body: GridView.builder(
-        itemCount: 7,
+        itemCount: users.length,
         gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
           crossAxisCount: 2,
           crossAxisSpacing: 10,
           mainAxisSpacing: 10,
         ),
         itemBuilder: (context, index) {
+          final ss = users[index];
           return Padding(
             padding: const EdgeInsets.all(8.0),
             child: Material(
               elevation: 5,
               borderRadius: BorderRadius.circular(20),
-              child: Column(children: [Text('hfjf'), Text('fgfdfd')]),
+              child: Column(
+                children: [Text(ss.name.toString()), Text(ss.body.toString())],
+              ),
             ),
           );
         },
