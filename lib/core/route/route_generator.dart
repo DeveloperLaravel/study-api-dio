@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_study_api_dio/core/route/route_string.dart';
+import 'package:flutter_study_api_dio/core/screens/mothed_api/contact.dart';
 import 'package:flutter_study_api_dio/core/screens/screen_first/home_page.dart';
 import 'package:flutter_study_api_dio/core/screens/mothed_api/about_screen.dart';
 
@@ -12,6 +13,8 @@ class RouteGenerator {
         );
       case feedRoute:
         return MaterialPageRoute(builder: (_) => const AboutScreen());
+      case contactRoute:
+        return MaterialPageRoute(builder: (_) => const Contact());
       default:
         return _errorPage();
     }

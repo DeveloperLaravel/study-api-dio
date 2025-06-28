@@ -11,7 +11,7 @@ class AboutScreen extends StatefulWidget {
 class _AboutScreenState extends State<AboutScreen> {
   List posts = [];
 
-  void fetcPosts() async {
+  Future<void> fetcPosts() async {
     try {
       var re = await Dio().get('https://jsonplaceholder.typicode.com/posts');
       setState(() {
