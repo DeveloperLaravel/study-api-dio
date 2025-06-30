@@ -44,14 +44,16 @@ class _ContactState extends State<Contact> {
           mainAxisSpacing: 10,
         ),
         itemBuilder: (context, index) {
-          final ss = users[index];
           return Padding(
             padding: const EdgeInsets.all(8.0),
             child: Material(
               elevation: 5,
               borderRadius: BorderRadius.circular(20),
               child: Column(
-                children: [Text(ss.name.toString()), Text(ss.body.toString())],
+                children: [
+                  Text(users[index].name.toString()),
+                  Text(users[index].body.toString()),
+                ],
               ),
             ),
           );

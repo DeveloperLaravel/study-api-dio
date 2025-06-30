@@ -161,8 +161,11 @@ class _MyHomePageState extends State<MyHomePage> {
                                 Navigator.pushNamed(context, contactRoute),
                             icon: CoustemText(text: 'contact', size: 20),
                           ),
-
-                          CoustemText(text: 'blog', size: 20),
+                          IconButton(
+                            onPressed: () =>
+                                Navigator.pushNamed(context, blogRoute),
+                            icon: CoustemText(text: 'blog', size: 20),
+                          ),
                         ],
                       ),
 
